@@ -1,16 +1,13 @@
-import express from 'express'
-import emoji from 'node-emoji'
-import cors from 'cors'
-import morgan from 'morgan'
-import dotenv from 'dotenv'
+import express from "express";
+import dotenv from "dotenv";
 
-dotenv.config()
-const app = express()
-app.use(cors())
-app.use(express.json())
-app.use(express.urlencoded({ extended:true}))
-app.use(morgan('dev'))
+dotenv.config();
+const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-const PORT = process.env.PORT || 3000
-const server = app.listen(PORT, () => console.log(emoji.get('fire'),`Server started on port http://localhost:${PORT}`))
-server.on('error', (err) => console.log(err))
+const PORT = process.env.PORT || 3000;
+const server = app.listen(PORT, () =>
+  console.log(`🔥 Server started on port http://localhost:${PORT}`),
+);
+server.on("error", (err) => console.log(err));
